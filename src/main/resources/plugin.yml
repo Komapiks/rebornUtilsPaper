@@ -1,0 +1,4 @@
+name: rebornUtilsPaper
+version: '1.0-SNAPSHOT'
+main: ru.komap.rebornUtilsPaper.RebornUtilsPaper
+api-version: '1.21'
