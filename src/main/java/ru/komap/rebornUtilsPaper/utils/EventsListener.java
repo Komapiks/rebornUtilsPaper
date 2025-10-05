@@ -130,17 +130,17 @@ public class EventsListener implements Listener {
             if (modificator == 0) {
                 itemMeta.setLore(legendaryList);
                 if (result.toString().contains("DIAMOND_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(7));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(7));
                 } else if (result.toString().contains("IRON_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(6));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(6));
                 } else if (result.toString().contains("GOLDEN_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(4));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(4));
                 } else if (result.toString().contains("STONE_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(5));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(5));
                 } else if (result.toString().contains("WOODEN_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(4));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(4));
                 } else if (result.toString().contains("NETHERITE_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getLM(8));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getLM(8));
                 }
 
                 result.setItemMeta(itemMeta);
@@ -150,17 +150,17 @@ public class EventsListener implements Listener {
             if (modificator >= 1 && modificator <= 4) {
                 itemMeta.setLore(sharpenList);
                 if (result.toString().contains("DIAMOND_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(7));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(7));
                 } else if (result.toString().contains("IRON_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(6));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(6));
                 } else if (result.toString().contains("GOLDEN_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(4));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(4));
                 } else if (result.toString().contains("STONE_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(5));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(5));
                 } else if (result.toString().contains("WOODEN_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(4));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(4));
                 } else if (result.toString().contains("NETHERITE_SWORD")) {
-                    itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, getSM(8));
+                    itemMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE, getSM(8));
                 }
 
                 result.setItemMeta(itemMeta);
@@ -169,8 +169,8 @@ public class EventsListener implements Listener {
 
             if (modificator == 5) {
                 itemMeta.setLore(longList);
-                itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_KNOCKBACK, longModif1);
-                itemMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, longModif2);
+                itemMeta.addAttributeModifier(Attribute.ATTACK_KNOCKBACK, longModif1);
+                itemMeta.addAttributeModifier(Attribute.ATTACK_SPEED, longModif2);
                 result.setItemMeta(itemMeta);
                 event.getInventory().setResult(result);
             }
