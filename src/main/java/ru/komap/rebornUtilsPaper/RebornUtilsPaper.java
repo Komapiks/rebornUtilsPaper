@@ -27,8 +27,8 @@ public final class RebornUtilsPaper extends JavaPlugin implements CommandExecuto
         getCommand("giveExplodingArrow").setExecutor(listener);
         getServer().getPluginManager().registerEvents(listener, this);
 
-        motdManager = new MotdManager(getDataFolder());
-        Objects.requireNonNull(this.getCommand("togglelink")).setExecutor(motdManager);
+        //motdManager = new MotdManager(getDataFolder());
+        //Objects.requireNonNull(this.getCommand("togglelink")).setExecutor(motdManager);
 
         discordBot = new DiscordBot();
         try {

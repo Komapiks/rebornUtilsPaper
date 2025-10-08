@@ -37,66 +37,74 @@ public class EventsListener implements Listener {
     public void onEntitySpawn(EntitySpawnEvent event) {
         Entity currentEntity = event.getEntity();
         int healthLvl;
-        if (currentEntity instanceof Zombie) {
-            Zombie entity = (Zombie)event.getEntity();
-            healthLvl = this.rand.nextInt(15, 76);
-            if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
-            } else if (healthLvl >= 65) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 1));
-            }
+        switch (currentEntity) {
+            case Zombie zombie -> {
+                Zombie entity = (Zombie) event.getEntity();
+                healthLvl = this.rand.nextInt(15, 76);
+                if (healthLvl >= 30 && healthLvl <= 64) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
+                } else if (healthLvl >= 65) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 1));
+                }
 
-            entity.setMaxHealth((double)healthLvl);
-            entity.setHealth((double)healthLvl);
-        } else if (currentEntity instanceof Skeleton) {
-            Skeleton entity = (Skeleton)event.getEntity();
-            healthLvl = this.rand.nextInt(15, 76);
-            if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
-            } else if (healthLvl >= 65) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, -1, 1));
+                entity.setMaxHealth((double) healthLvl);
+                entity.setHealth((double) healthLvl);
             }
+            case Skeleton skeleton -> {
+                Skeleton entity = (Skeleton) event.getEntity();
+                healthLvl = this.rand.nextInt(15, 76);
+                if (healthLvl >= 30 && healthLvl <= 64) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
+                } else if (healthLvl >= 65) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, -1, 1));
+                }
 
-            entity.setMaxHealth((double)healthLvl);
-            entity.setHealth((double)healthLvl);
-        } else if (currentEntity instanceof Creeper) {
-            Creeper entity = (Creeper)event.getEntity();
-            healthLvl = this.rand.nextInt(15, 76);
-            if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
-            } else if (healthLvl >= 65) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
-                entity.setExplosionRadius(6);
-                entity.setMaxFuseTicks(70);
-                entity.setFuseTicks(70);
+                entity.setMaxHealth((double) healthLvl);
+                entity.setHealth((double) healthLvl);
             }
+            case Creeper creeper -> {
+                Creeper entity = (Creeper) event.getEntity();
+                healthLvl = this.rand.nextInt(15, 76);
+                if (healthLvl >= 30 && healthLvl <= 64) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
+                } else if (healthLvl >= 65) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
+                    entity.setExplosionRadius(6);
+                    entity.setMaxFuseTicks(70);
+                    entity.setFuseTicks(70);
+                }
 
-            entity.setMaxHealth((double)healthLvl);
-            entity.setHealth((double)healthLvl);
-        } else if (currentEntity instanceof Spider) {
-            Spider entity = (Spider)event.getEntity();
-            healthLvl = this.rand.nextInt(8, 46);
-            if (healthLvl >= 30) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 0));
+                entity.setMaxHealth((double) healthLvl);
+                entity.setHealth((double) healthLvl);
             }
+            case Spider spider -> {
+                Spider entity = (Spider) event.getEntity();
+                healthLvl = this.rand.nextInt(8, 46);
+                if (healthLvl >= 30) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, -1, 1));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, -1, 1));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 0));
+                }
 
-            entity.setMaxHealth((double)healthLvl);
-            entity.setHealth((double)healthLvl);
-        } else if (currentEntity instanceof Phantom) {
-            Phantom entity = (Phantom)event.getEntity();
-            healthLvl = this.rand.nextInt(5, 41);
-            if (healthLvl >= 30) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
+                entity.setMaxHealth((double) healthLvl);
+                entity.setHealth((double) healthLvl);
             }
+            case Phantom phantom -> {
+                Phantom entity = (Phantom) event.getEntity();
+                healthLvl = this.rand.nextInt(5, 41);
+                if (healthLvl >= 30) {
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
+                }
 
-            entity.setMaxHealth((double)healthLvl);
-            entity.setHealth((double)healthLvl);
+                entity.setMaxHealth((double) healthLvl);
+                entity.setHealth((double) healthLvl);
+            }
+            default -> {
+            }
         }
 
     }
@@ -111,19 +119,19 @@ public class EventsListener implements Listener {
 
     @EventHandler
     public void craftingEvent(CraftItemEvent event) {
-        List<String> legendaryList = new ArrayList();
-        legendaryList.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Легендарный..");
-        legendaryList.add(ChatColor.GOLD + "" + ChatColor.BOLD + "+ 5 урона");
-        List<String> sharpenList = new ArrayList();
-        sharpenList.add(ChatColor.WHITE + "" + ChatColor.BOLD + "Острый..");
-        sharpenList.add(ChatColor.WHITE + "" + ChatColor.BOLD + "+ 3 урона");
-        List<String> longList = new ArrayList();
-        longList.add(ChatColor.GRAY + "" + ChatColor.BOLD + "Cломанный..");
-        longList.add(ChatColor.GRAY + "" + ChatColor.BOLD + "- 5 скорости атаки");
-        AttributeModifier longModif1 = new AttributeModifier(UUID.randomUUID(), "Legendary Modifier", 2.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        AttributeModifier longModif2 = new AttributeModifier(UUID.randomUUID(), "Legendary Modifier", -5.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         ItemStack result = event.getRecipe().getResult();
         if (result != null && result.toString().contains("_SWORD")) {
+            List<String> legendaryList = new ArrayList();
+            legendaryList.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Легендарный..");
+            legendaryList.add(ChatColor.GOLD + "" + ChatColor.BOLD + "+ 5 урона");
+            List<String> sharpenList = new ArrayList();
+            sharpenList.add(ChatColor.WHITE + "" + ChatColor.BOLD + "Острый..");
+            sharpenList.add(ChatColor.WHITE + "" + ChatColor.BOLD + "+ 3 урона");
+            List<String> longList = new ArrayList();
+            longList.add(ChatColor.GRAY + "" + ChatColor.BOLD + "Cломанный..");
+            longList.add(ChatColor.GRAY + "" + ChatColor.BOLD + "- 5 скорости атаки");
+            AttributeModifier longModif1 = new AttributeModifier(UUID.randomUUID(), "Legendary Modifier", 2.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+            AttributeModifier longModif2 = new AttributeModifier(UUID.randomUUID(), "Legendary Modifier", -5.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
             ItemMeta itemMeta = result.getItemMeta();
             Random rand = new Random();
             int modificator = rand.nextInt(0, 16);
